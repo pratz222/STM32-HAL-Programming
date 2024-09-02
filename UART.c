@@ -1,5 +1,6 @@
 // Board: STM32F103C8T6
 // IDE: STM32CubeIDE
+// Rest of the main.c code is AUTO Generated
 
 int main(void)
 {
