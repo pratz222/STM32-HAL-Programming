@@ -40,9 +40,9 @@ int main(void)
   while (1)
   {
 
-	  HAL_ADC_Start(&hadc);							            // Start ADC Conversion
-	  HAL_ADC_PollForConversion(&hadc, 10000);      // To stop the ADC Conversion
-	  value = HAL_ADC_GetValue(&hadc);              // Get Value after ADC conversion
+	  HAL_ADC_Start(&hadc1);							            // Start ADC Conversion
+	  HAL_ADC_PollForConversion(&hadc1, 10000);      // To stop the ADC Conversion
+	  value = HAL_ADC_GetValue(&hadc1);              // Get Value after ADC conversion
     
 	  sprintf(msg, "%hu\r\n", value);               // To Format the ADC value as a string and store it in msg
                                                   // The "%hu" format specifier is used for unsigned short integers
