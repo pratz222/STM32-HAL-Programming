@@ -26,11 +26,11 @@ int main(void)
     {
         if(RX_BUFF[0] == '1')
         {
-            HAL_GPIO_WritePin(GPIOB, GPIO_PIN_10, 1);
+            HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, 1);
         }
         else if(RX_BUFF[0] == '0')
         {
-            HAL_GPIO_WritePin(GPIOB, GPIO_PIN_10, 0);
+            HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, 0);
         }
     }
 }
