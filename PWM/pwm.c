@@ -29,10 +29,11 @@ int main(void)
   MX_TIM3_Init();
   /* USER CODE BEGIN 2 */
 
-                                    // In ARR Register we have already set 1000
-                                    // Now to set duty cycle we need to change value in CCR register 1000 = 100%, 500 = 50%, 250 = 25%, 0 = 0% duty cycle
-
-  TIM3 ->CCR4 = 500;                // Set 50% duty cycle
+  // ALTERNATE METHOD without while loop
+            // In ARR Register we have already set 1000
+           // Now to set duty cycle we need to change value in CCR register 1000 = 100%, 500 = 50%, 250 = 25%, 0 = 0% duty cycle
+          // TIM3 ->CCR4 = 500;                // Set 50% duty cycle\
+  
   HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_4);        // Start PWM signal on channel 4
 
 
@@ -41,10 +42,18 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
-  {
-    /* USER CODE END WHILE */
+    {
+	  for(int i = 0; i <= 1000; i++)
+	  {
+		  __HAL_TIM_SET_COMPARE(&htim3 , TIM_CHANNEL_4, i);
+		  HAL_Delay(1);
+	  }
+	  for(int i = 1000; i > 0; i--)
+	  {
+		  __HAL_TIM_SET_COMPARE(&htim3 , TIM_CHANNEL_4, i);
+		  HAL_Delay(1);
+	  }
 
-    /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
 }
